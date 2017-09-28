@@ -14,5 +14,5 @@ class Config {
 Config::$dbName = 'sqlite:../db/packages.sqlite3';
 Config::$packageDir = __DIR__ . '/../packagefiles/';
 Config::$publicApiKeyRequired = false;
-Config::$publicApiKey = 'ChangeThisKey';
+Config::$publicApiKey = 'ChangeThisPublicKey';
 Config::$privateApiKey = 'ChangeThisKey';
