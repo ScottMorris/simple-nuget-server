@@ -21,10 +21,26 @@ set_exception_handler(function($exception) {
 $_GET = array_change_key_case($_GET, CASE_LOWER);
 
 /**
+ * Ensures that the public API key is valid.
+ */
+ function require_public_auth() {
+	if(Config::$publicApiKeyRequired) {
+		validate_auth(Config::$publicApiKey);
+	}
+}
+
+/**
+ * Ensures that the private API key is valid.
+ */
+function require_private_auth() {
+	validate_auth(Config::$privateApiKey);
+}
+
+/**
  * Ensures that the API key is valid.
  */
-function require_auth() {
-	if (empty($_SERVER['HTTP_X_NUGET_APIKEY']) || $_SERVER['HTTP_X_NUGET_APIKEY'] != Config::$apiKey) {
+ function validate_auth($apiKey) {
+	if (empty($_SERVER['HTTP_X_NUGET_APIKEY']) || $_SERVER['HTTP_X_NUGET_APIKEY'] != $apiKey) {
 		api_error('403', 'Invalid API key');
 	}
 }

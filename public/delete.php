@@ -8,7 +8,7 @@ if (request_method() !== 'DELETE') {
 	api_error('405', 'Only DELETEs allowed here');
 }
 
-require_auth();
+require_private_auth();
 
 $id = $_GET['id'];
 $version = $_GET['version'];

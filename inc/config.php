@@ -5,10 +5,14 @@ class Config {
 	// but may be needed if you want to use a different database system.
 	public static $dbUsername;
 	public static $dbPassword;
-	public static $apiKey;
+	public static $publicApiKeyRequired;
+	public static $publicApiKey;
+	public static $privateApiKey;
 	public static $packageDir;
 }
 
 Config::$dbName = 'sqlite:../db/packages.sqlite3';
 Config::$packageDir = __DIR__ . '/../packagefiles/';
-Config::$apiKey = 'ChangeThisKey';
+Config::$publicApiKeyRequired = false;
+Config::$publicApiKey = 'ChangeThisKey';
+Config::$privateApiKey = 'ChangeThisKey';

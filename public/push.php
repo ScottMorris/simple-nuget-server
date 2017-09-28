@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../inc/core.php');
 
-require_auth();
+require_private_auth();
 
 if (empty($_FILES['package'])) {
 	api_error('400', 'No package file');
